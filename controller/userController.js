@@ -20,9 +20,7 @@ const signup = async (req, res) => {
 
     if (user) {
       let token = jwt.sign({ id: user.id }, process.env.secretKey);
-
-      console.log("user", JSON.stringify(user, null, 2));
-      console.log(token);
+       console.log(token);
 
       return res.status(201).send({ message:"User signed up successfully...!!"});
     } else {
@@ -52,8 +50,6 @@ const login = async (req, res) => {
 
       if (isSame) {
         let token = jwt.sign({ id: user.id }, process.env.secretKey);
-
-        console.log("user", JSON.stringify(user, null, 2));
         console.log(token);
 
         return res.status(201).send({ message:"Logged in successfully..!!"});
